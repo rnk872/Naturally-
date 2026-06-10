@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fruit AI Bot</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="chat.html">Chat</a>
+<a href="ai-bot.html">AI Bot</a>
+</div>
+
+<h1>🤖 Fruit AI Assistant</h1>
+
+<div id="chat"></div>
+
+<input id="input" placeholder="Ask anything...">
+<button onclick="ask()">Ask</button>
+
+<script>
+function ask(){
+let q=document.getElementById("input").value;
+let chat=document.getElementById("chat");
+
+chat.innerHTML+=`<p>You: ${q}</p>`;
+
+let reply="I don't know yet 🤖";
+
+if(q.includes("price")) reply="Fruits start from ₹50 🍎";
+if(q.includes("profit")) reply="Your profit = revenue - expense 📊";
+if(q.includes("game")) reply="Go to Game Zone 🎮";
+if(q.includes("hello")) reply="Hello! I am Fruit AI 🍉";
+
+setTimeout(()=>{
+chat.innerHTML+=`<p>AI: ${reply}</p>`;
+},500);
+
+document.getElementById("input").value="";
+}
+</script>
+
+</body>
+</html>
