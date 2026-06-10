@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="cart.html">Cart</a>
+</div>
+
+<h1>Dashboard 📊</h1>
+
+<div id="orders"></div>
+
+<script src="js/db.js"></script>
+<script src="js/orders.js"></script>
+<script>
+requireLogin();
+loadOrders();
+</script>
+
+</body>
+</html>
