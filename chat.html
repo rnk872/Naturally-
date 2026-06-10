@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fruit Chat</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="chat.html">Chat</a>
+</div>
+
+<h1>💬 Fruit Chat Bot</h1>
+
+<div id="chatBox"></div>
+
+<input id="msg" placeholder="Type message">
+<button onclick="send()">Send</button>
+
+<script>
+function send(){
+let msg=document.getElementById("msg").value;
+let box=document.getElementById("chatBox");
+
+box.innerHTML+=`<p>You: ${msg}</p>`;
+
+let reply="I am FruitBot 🍉";
+
+if(msg.includes("price")) reply="Prices start from ₹50";
+if(msg.includes("hello")) reply="Hello 👋 welcome to Fruitizzzz";
+
+setTimeout(()=>{
+box.innerHTML+=`<p>Bot: ${reply}</p>`;
+},500);
+
+document.getElementById("msg").value="";
+}
+</script>
+
+</body>
+</html>
