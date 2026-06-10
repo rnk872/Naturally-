@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>Search Products 🔍</h2>
+
+<input id="q" onkeyup="runSearch()" placeholder="Search...">
+
+<div id="results"></div>
+
+<script src="js/products.js"></script>
+<script src="js/search.js"></script>
+
+<script>
+function runSearch(){
+let q=document.getElementById("q").value;
+let r=searchProducts(q);
+
+document.getElementById("results").innerHTML=
+r.map(p=>`<p>${p.name} - ₹${p.price}</p>`).join("");
+}
+</script>
+
+</body>
+</html>
