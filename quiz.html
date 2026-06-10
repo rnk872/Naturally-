@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fruit Quiz</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="gamezone.html">Game Zone</a>
+</div>
+
+<h1>🧠 Fruit Quiz</h1>
+
+<div id="quizBox"></div>
+
+<button onclick="nextQ()">Next</button>
+
+<script>
+const quiz=[
+{q:"Which fruit is red?",a:"Apple",o:["Banana","Apple","Mango"]},
+{q:"Which fruit is yellow?",a:"Banana",o:["Banana","Apple","Grapes"]},
+{q:"Which fruit is king?",a:"Mango",o:["Apple","Mango","Orange"]}
+];
+
+let i=0;
+
+function loadQ(){
+let q=quiz[i];
+document.getElementById("quizBox").innerHTML=`
+<h3>${q.q}</h3>
+${q.o.map(o=>`<button onclick="check('${o}')">${o}</button>`).join("<br>")}
+`;
+}
+
+function check(ans){
+if(ans===quiz[i].a){
+alert("Correct ✅");
+}else{
+alert("Wrong ❌");
+}
+}
+
+function nextQ(){
+i++;
+if(i>=quiz.length)i=0;
+loadQ();
+}
+
+loadQ();
+</script>
+
+</body>
+</html>
