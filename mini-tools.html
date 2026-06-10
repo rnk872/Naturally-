@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mini Tools</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="mini-tools.html">Tools</a>
+</div>
+
+<h1>🛠 Mini Tools</h1>
+
+<div class="tool">
+<h3>Weight Converter</h3>
+<input id="kg" placeholder="Kg">
+<button onclick="convert()">Convert</button>
+<p id="out"></p>
+</div>
+
+<script>
+function convert(){
+let kg=document.getElementById("kg").value;
+document.getElementById("out").innerText=
+kg+" kg = "+(kg*1000)+" grams";
+}
+</script>
+
+</body>
+</html>
