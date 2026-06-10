@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Live Admin Panel</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="admin-live.html">Live Admin</a>
+</div>
+
+<h1>📊 Live Business Control</h1>
+
+<div class="box">
+<h3>Revenue</h3>
+<p id="rev">0</p>
+
+<h3>Orders</h3>
+<p id="orders">0</p>
+
+<h3>Profit</h3>
+<p id="profit">0</p>
+</div>
+
+<script>
+function update(){
+
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+let revenue = orders.length * 120;
+let expense = orders.length * 60;
+let profit = revenue - expense;
+
+document.getElementById("rev").innerText = revenue;
+document.getElementById("orders").innerText = orders.length;
+document.getElementById("profit").innerText = profit;
+
+}
+
+setInterval(update,1000);
+update();
+</script>
+
+</body>
+</html>
