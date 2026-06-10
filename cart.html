@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="shop.html">Shop</a>
+<a href="index.html">Home</a>
+</div>
+
+<h2>Your Cart 🛒</h2>
+<div id="cart"></div>
+
+<button onclick="checkout()">Checkout</button>
+
+<script src="js/db.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+<script>
+loadCart();
+</script>
+
+</body>
+</html>
