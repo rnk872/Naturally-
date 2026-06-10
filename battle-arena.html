@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fruit Battle Arena</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="gamezone.html">Game Zone</a>
+</div>
+
+<h1>🔥 Battle Arena</h1>
+
+<div id="arena"></div>
+
+<script>
+let score=0;
+
+setInterval(()=>{
+
+let enemy=document.createElement("div");
+enemy.innerText="🍇";
+enemy.style.position="absolute";
+enemy.style.left=Math.random()*90+"vw";
+enemy.style.top=Math.random()*70+"vh";
+enemy.style.fontSize="30px";
+
+enemy.onclick=()=>{
+score++;
+enemy.remove();
+};
+
+document.getElementById("arena").appendChild(enemy);
+
+setTimeout(()=>enemy.remove(),2500);
+
+},500);
+</script>
+
+</body>
+</html>
