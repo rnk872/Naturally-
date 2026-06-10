@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fruitizzzz Multiplayer</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="gamezone.html">Game Zone</a>
+<a href="multiplayer.html">Multiplayer</a>
+</div>
+
+<h1>⚡ Multiplayer Fruit Battle</h1>
+
+<div class="panel">
+<h2>Player 1 Score: <span id="p1">0</span></h2>
+<h2>Player 2 Score: <span id="p2">0</span></h2>
+</div>
+
+<button onclick="spawn()">Start Battle</button>
+
+<div id="arena"></div>
+
+<script>
+let p1=0,p2=0;
+
+function spawn(){
+
+let arena=document.getElementById("arena");
+arena.innerHTML="";
+
+setInterval(()=>{
+
+let fruit=document.createElement("div");
+fruit.innerText="🍍";
+fruit.style.position="absolute";
+fruit.style.left=Math.random()*80+"vw";
+fruit.style.top=Math.random()*60+"vh";
+fruit.style.fontSize="30px";
+fruit.style.cursor="pointer";
+
+let owner=Math.random()>0.5?1:2;
+
+fruit.onclick=()=>{
+if(owner===1){
+p1++;
+document.getElementById("p1").innerText=p1;
+}else{
+p2++;
+document.getElementById("p2").innerText=p2;
+}
+fruit.remove();
+};
+
+arena.appendChild(fruit);
+
+setTimeout(()=>fruit.remove(),2000);
+
+},700);
+}
+</script>
+
+</body>
+</html>
