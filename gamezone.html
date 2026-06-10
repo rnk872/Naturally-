@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fruitizzzz Game Zone</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="nav">
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="gamezone.html">Game Zone</a>
+<a href="quiz.html">Quiz</a>
+</div>
+
+<h1>🎮 Game Zone</h1>
+
+<div class="game-box">
+<h2>Fruit Catcher</h2>
+<p id="score">Score: 0</p>
+<button onclick="startGame()">Start Game</button>
+<div id="playArea"></div>
+</div>
+
+<script>
+let score=0;
+
+function startGame(){
+
+score=0;
+document.getElementById("score").innerText="Score: "+score;
+
+let area=document.getElementById("playArea");
+area.innerHTML="";
+
+let interval=setInterval(()=>{
+
+let fruit=document.createElement("div");
+fruit.innerText="🍎";
+fruit.style.position="absolute";
+fruit.style.left=Math.random()*80+"vw";
+fruit.style.top=Math.random()*60+"vh";
+fruit.style.fontSize="30px";
+fruit.style.cursor="pointer";
+
+fruit.onclick=()=>{
+score++;
+document.getElementById("score").innerText="Score: "+score;
+fruit.remove();
+};
+
+area.appendChild(fruit);
+
+setTimeout(()=>fruit.remove(),2000);
+
+},800);
+
+setTimeout(()=>clearInterval(interval),15000);
+}
+</script>
+
+</body>
+</html>
